@@ -133,7 +133,7 @@ export default function PredictionForm() {
             <Input
               id="teamB"
               name="teamB"
-              label="OH Leuven"
+              label="OH Leuve"
               type="number"
               inputMode="numeric"
               min={0}
