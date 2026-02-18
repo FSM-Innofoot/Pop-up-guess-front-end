@@ -1,0 +1,113 @@
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  width: clamp(160px, 45vw, 220px);
+  height: auto;
+}
+
+.matchBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-brand);
+}
+
+.teamName {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  flex: 1;
+  text-align: center;
+}
+
+.vs {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.headline {
+  /* clamp keeps it readable on 320px iPhone SE up to tablet */
+  font-size: clamp(2.2rem, 9vw, 3.6rem);
+  color: var(--color-brand);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.scoreFieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scoreLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.scoreRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 8px;
+}
+
+.scoreDash {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-brand);
+  line-height: 1;
+  padding-bottom: 12px;
+  align-self: end;
+}
+
+.consent {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-top: -10px;
+}
+
+.generalError {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #d94040;
+  background: rgba(217, 64, 64, 0.06);
+  border-left: 3px solid #d94040;
+  border-radius: 2px;
+  padding: 10px 12px;
+  margin: 0;
+}

@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  padding: 14px 20px 12px;
+  border-bottom: 2px solid #237061;
+  display: flex;
+  align-items: center;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+}
+
+.logo {
+  display: block;
+  /* Keep logo crisp at all pixel densities */
+  image-rendering: -webkit-optimize-contrast;
+  height: auto;
+  width: clamp(120px, 30vw, 160px);
+}

@@ -1,0 +1,67 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.hint {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: #4e9e84;
+  margin: 0;
+}
+
+.input {
+  background: #ffffff;
+  border: 1.5px solid #ccddd9;
+  border-radius: 4px;
+  padding: 13px 14px;
+  font-family: var(--font-body);
+  /* 16px minimum prevents iOS auto-zoom on focus */
+  font-size: 16px;
+  color: #1a1a1a;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-appearance: textfield;
+  /* Ensure 44px min touch target height */
+  min-height: 48px;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #237061;
+  box-shadow: 0 0 0 3px rgba(35, 112, 97, 0.15);
+}
+
+.inputError {
+  border-color: #d94040;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(217, 64, 64, 0.15);
+}
+
+.error {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: #d94040;
+  margin: 0;
+}

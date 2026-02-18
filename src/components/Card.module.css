@@ -1,0 +1,19 @@
+.card {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 36px 28px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* On small phones: remove border-radius and stretch edge-to-edge */
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 20px 32px;
+    border-radius: 0;
+    /* account for notch */
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+}

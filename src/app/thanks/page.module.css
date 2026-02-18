@@ -1,0 +1,116 @@
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 0 48px;
+  width: 100%;
+}
+
+@media (min-height: 640px) {
+  .page {
+    justify-content: center;
+    padding: 32px 0 48px;
+  }
+}
+
+@media (min-width: 481px) {
+  .page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.card {
+  position: relative;
+}
+
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: clamp(160px, 45vw, 220px);
+  height: auto;
+}
+
+.headline {
+  font-size: clamp(2.6rem, 11vw, 4.5rem);
+  color: var(--color-brand);
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.auctionBanner {
+  background: rgba(35, 112, 97, 0.07);
+  border-left: 4px solid var(--color-brand);
+  border-radius: 2px;
+  padding: 18px 20px;
+  margin-bottom: 32px;
+}
+
+.auctionLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  margin-bottom: 6px;
+}
+
+.auctionText {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.auctionText strong {
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px;
+  min-height: 50px;
+  border: 2px solid var(--color-brand);
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.socialBtn:hover {
+  background: var(--color-brand);
+  color: #ffffff;
+}

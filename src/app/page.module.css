@@ -1,0 +1,26 @@
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Start from top so content isn't clipped on short viewports */
+  justify-content: flex-start;
+  padding: 24px 0 48px;
+  width: 100%;
+}
+
+/* Centre vertically only when there's ample room */
+@media (min-height: 700px) {
+  .page {
+    justify-content: center;
+    padding: 32px 0 48px;
+  }
+}
+
+/* Outer horizontal gutter — card handles its own padding */
+@media (min-width: 481px) {
+  .page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
