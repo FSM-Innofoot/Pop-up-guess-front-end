@@ -114,3 +114,43 @@
   background: var(--color-brand);
   color: #ffffff;
 }
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.countdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.countdownValue {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  line-height: 1;
+}
+
+.countdownLabel {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 480px) {
+  .countdownValue {
+    font-size: 1.4rem;
+  }
+
+  .countdown {
+    gap: 8px;
+  }
+}

@@ -6,5 +6,6 @@ export interface Prediction {
   email: string;
   teamA: number;
   teamB: number;
+  firstGoalMinute?: number;
   createdAt: string; // ISO-8601 string
 }

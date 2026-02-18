@@ -11,6 +11,7 @@ import styles from './PredictionForm.module.css';
 interface FormErrors {
   teamA?: string;
   teamB?: string;
+  firstGoalMinute?: string;
   email?: string;
   general?: string;
 }
@@ -28,6 +29,7 @@ export default function PredictionForm() {
     const rawEmail = (data.get('email') as string).trim();
     const rawTeamA = (data.get('teamA') as string).trim();
     const rawTeamB = (data.get('teamB') as string).trim();
+    const rawFirstGoalMinute = (data.get('firstGoalMinute') as string).trim();
     const honeypot = (data.get('website') as string | null) ?? '';
 
     const newErrors: FormErrors = {};
@@ -37,11 +39,18 @@ export default function PredictionForm() {
     }
     const teamA = parseInt(rawTeamA, 10);
     const teamB = parseInt(rawTeamB, 10);
+    const firstGoalMinute = rawFirstGoalMinute ? parseInt(rawFirstGoalMinute, 10) : undefined;
     if (isNaN(teamA) || teamA < 0 || teamA > 20) {
       newErrors.teamA = 'Score must be between 0 and 20.';
     }
     if (isNaN(teamB) || teamB < 0 || teamB > 20) {
       newErrors.teamB = 'Score must be between 0 and 20.';
+    }
+    if (
+      rawFirstGoalMinute &&
+      (isNaN(firstGoalMinute) || firstGoalMinute < 0 || firstGoalMinute > 120)
+    ) {
+      newErrors.firstGoalMinute = 'Minute must be between 0 and 120.';
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -54,7 +63,7 @@ export default function PredictionForm() {
       const res = await fetch('/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: rawEmail, teamA, teamB, website: honeypot }),
+        body: JSON.stringify({ email: rawEmail, teamA, teamB, firstGoalMinute, website: honeypot }),
       });
 
       if (!res.ok) {
@@ -133,7 +142,7 @@ export default function PredictionForm() {
             <Input
               id="teamB"
               name="teamB"
-              label="OH Leuve"
+              label="OH Leuven"
               type="number"
               inputMode="numeric"
               min={0}
@@ -143,6 +152,18 @@ export default function PredictionForm() {
             />
           </div>
         </fieldset>
+
+        {/* First goal minute */}
+        <Input
+          id="firstGoalMinute"
+          name="firstGoalMinute"
+          label="In welke minuut valt de eerste goal?"
+          type="number"
+          inputMode="numeric"
+          min={0}
+          max={120}
+          error={errors.firstGoalMinute}
+        />
 
         {/* Email */}
         <Input

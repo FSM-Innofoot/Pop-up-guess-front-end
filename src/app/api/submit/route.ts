@@ -9,6 +9,7 @@ const schema = z.object({
   email: z.string().email(),
   teamA: z.number().int().min(0).max(20),
   teamB: z.number().int().min(0).max(20),
+  firstGoalMinute: z.number().int().min(0).max(120).optional(),
   campaignId: z.string().optional(),
   website: z.string().optional(), // honeypot — must remain empty
 });
@@ -54,19 +55,29 @@ export async function POST(req: Request) {
       );
     }
 
-    const { email, teamA, teamB, campaignId } = parsed.data;
+    const { email, teamA, teamB, firstGoalMinute, campaignId } = parsed.data;
     const ua = req.headers.get('user-agent') ?? '';
 
     const { auth, spreadsheetId } = getSheetsClient();
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Columns: timestamp | email | teamA | teamB | campaignId | userAgent
+    // Columns: timestamp | email | teamA | teamB | firstGoalMinute | campaignId | userAgent
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:F',
+      range: 'Sheet1!A:G',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
-        values: [[new Date().toISOString(), email, teamA, teamB, campaignId ?? '', ua]],
+        values: [
+          [
+            new Date().toISOString(),
+            email,
+            teamA,
+            teamB,
+            firstGoalMinute ?? '',
+            campaignId ?? '',
+            ua,
+          ],
+        ],
       },
     });
 
