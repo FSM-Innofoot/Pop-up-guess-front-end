@@ -111,3 +111,18 @@
   padding: 10px 12px;
   margin: 0;
 }
+
+.terms {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: -8px;
+}
+
+.termsLink {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

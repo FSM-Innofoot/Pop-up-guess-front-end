@@ -87,9 +87,9 @@ export default function PredictionForm() {
 
       {/* Match pairing */}
       <div className={styles.matchBadge} aria-label="Match: Team A versus Team B">
-        <span className={styles.teamName}>Football Shirt Market XI</span>
+        <span className={styles.teamName}>RSC Anderlecht</span>
         <span className={styles.vs}>vs</span>
-        <span className={styles.teamName}>Legends XI</span>
+        <span className={styles.teamName}>OH Leuven</span>
       </div>
 
       {/* Headline */}
@@ -119,12 +119,11 @@ export default function PredictionForm() {
             <Input
               id="teamA"
               name="teamA"
-              label="FSM XI"
+              label="RSC Anderlecht"
               type="number"
               inputMode="numeric"
               min={0}
               max={20}
-              defaultValue="0"
               error={errors.teamA}
               required
             />
@@ -134,12 +133,11 @@ export default function PredictionForm() {
             <Input
               id="teamB"
               name="teamB"
-              label="Legends XI"
+              label="OH Leuven"
               type="number"
               inputMode="numeric"
               min={0}
               max={20}
-              defaultValue="0"
               error={errors.teamB}
               required
             />
@@ -171,6 +169,18 @@ export default function PredictionForm() {
         <Button type="submit" disabled={isPending} aria-busy={isPending}>
           {isPending ? 'Submitting...' : 'Submit my guess'}
         </Button>
+        <p className={styles.terms}>
+          By submitting, you agree to the{' '}
+          <a
+            href="https://www.innofoot.be/policies/terms-of-service"
+            className={styles.termsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            terms and conditions
+          </a>
+          .
+        </p>
       </form>
     </Card>
   );
