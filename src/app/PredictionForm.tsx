@@ -39,18 +39,19 @@ export default function PredictionForm() {
     }
     const teamA = parseInt(rawTeamA, 10);
     const teamB = parseInt(rawTeamB, 10);
-    const firstGoalMinute = rawFirstGoalMinute ? parseInt(rawFirstGoalMinute, 10) : undefined;
+    let firstGoalMinute: number | undefined = undefined;
+
     if (isNaN(teamA) || teamA < 0 || teamA > 20) {
       newErrors.teamA = 'Score must be between 0 and 20.';
     }
     if (isNaN(teamB) || teamB < 0 || teamB > 20) {
       newErrors.teamB = 'Score must be between 0 and 20.';
     }
-    if (
-      rawFirstGoalMinute &&
-      (isNaN(firstGoalMinute) || firstGoalMinute < 0 || firstGoalMinute > 120)
-    ) {
-      newErrors.firstGoalMinute = 'Minute must be between 0 and 120.';
+    if (rawFirstGoalMinute) {
+      firstGoalMinute = parseInt(rawFirstGoalMinute, 10);
+      if (isNaN(firstGoalMinute) || firstGoalMinute < 0 || firstGoalMinute > 120) {
+        newErrors.firstGoalMinute = 'Minute must be between 0 and 120.';
+      }
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
