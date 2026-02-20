@@ -179,7 +179,7 @@ export default function PredictionForm() {
           required
         />
         <p className={styles.consent} id="email-consent">
-          We&apos;ll only use your email to share the auction announcement.
+          We&apos;ll only use your email to share the winner and the auction announcement.
         </p>
 
         {errors.general && (
